@@ -25,6 +25,12 @@ public class ValidacionAcademicaController {
         return validacionAcademicaRepository.findById(id);
     }
 
+    // Buscar por id de validacion (el que usa el frontend)
+    @GetMapping("/validacion/{idValidacion}")
+    public ValidacionAcademica buscarPorValidacion(@PathVariable Long idValidacion) {
+        return validacionAcademicaRepository.findByIdValidacion(idValidacion);
+    }
+
     @PostMapping
     public ValidacionAcademica guardar(@RequestBody ValidacionAcademica validacionAcademica) {
         return validacionAcademicaRepository.save(validacionAcademica);

@@ -27,6 +27,12 @@ public class ValidacionPagoController {
         return validacionPagoRepository.findById(id);
     }
 
+    // Buscar por id de validacion (el que usa el frontend)
+    @GetMapping("/validacion/{idValidacion}")
+    public ValidacionPago buscarPorValidacion(@PathVariable Long idValidacion) {
+        return validacionPagoRepository.findByIdValidacion(idValidacion);
+    }
+
     // Guardar nuevo
     @PostMapping
     public ValidacionPago guardar(@RequestBody ValidacionPago validacionPago) {
